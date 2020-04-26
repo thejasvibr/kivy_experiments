@@ -1,0 +1,17 @@
+#: kivy 1.11.1
+
+<PongBall>:
+    size: 50, 50 
+    canvas:
+        Ellipse:
+            pos: self.pos
+            size: self.size          
+
+<PongGame>:
+    ball: pong_ball
+    
+   
+    PongBall:
+        id: pong_ball
+        center: self.parent.center
+        
