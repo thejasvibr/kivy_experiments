@@ -25,7 +25,7 @@ class PongBall(Widget):
 
 class PongGame(Widget):
     ball = ObjectProperty(None)
-
+    i = 0
 
     def serve_ball(self):
         
@@ -45,8 +45,10 @@ class PongGame(Widget):
         if (self.ball.x < 0) or (self.ball.x>self.width):
             self.ball.velocity_x *= -1
 
-    def on_touch_move(self, touch):
+    def on_touch_up(self, touch):
+        self.i += 1 
         SoundLoader.load('base_tone.wav').play()
+        print('I=',self.i)
         self.ball.center = touch.pos
         self.ball.velocity = self.gen_random_velocity()
     
